@@ -27,5 +27,21 @@
   "PROFILE": "Perfil",
   "PROFILE_DETAILS": "Detalles del perfil",
   "PROFILE_MESSAGE": "Bienvenido a tu perfil",
-  "ROLE": "Rol"
+  "ROLE": "Rol",
+  "CANCEL": "Cancelar",
+  "SAVE": "Guardar",
+  "EDIT": "Editar",
+  "CLOSE": "Cerrar",
+  "DELETE": "Eliminar",
+  "CREATE_USER": "Crear usuario",
+  "ADD_USER": "Agregar usuario",
+  "EDIT_USER": "Editar usuario",
+  "NAME": "Nombre",
+  "PLEASE_SELECT_ROLE": "Por favor seleccione un rol",
+  "SELECT_ROLE": "Seleccionar rol",
+  "ROLE_NOT_FOUND": "Rol no encontrado por favor recargue la página",
+  "PAGE": "Página",
+  "TOTAL_RECORDS": "Total de registros",
+  "OF": "de ",
+  "CONFIRM_DELETE": "¿Estás seguro de que deseas eliminar este registro?, esta acción no se puede deshacer"
 }

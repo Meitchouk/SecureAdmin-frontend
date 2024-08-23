@@ -5,10 +5,11 @@ import {
   FaCaretDown,
   FaCaretUp,
   FaTachometerAlt,
+  FaUsers,
+  FaUserShield,
 } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import { MdSecurity } from "react-icons/md";
-import { FaUsers, FaUserShield } from "react-icons/fa";
 import { BsPersonBadgeFill } from "react-icons/bs";
 import { formatDate, formatTime } from "../../utils/dateTimeUtils";
 import { t } from "i18next";
@@ -95,7 +96,7 @@ const Sidebar = () => {
             </button>
 
             {!isCollapsed && (isSecurityMenuOpen || isInSecurityMenu) && (
-              <div className="pl-6 space-y-">
+              <div className="pl-6 space-y-2 pt-4">
                 <Link
                   to="/security/users"
                   className={navLinkClasses("/security/users")}

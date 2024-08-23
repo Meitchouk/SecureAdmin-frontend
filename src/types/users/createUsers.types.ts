@@ -3,6 +3,6 @@ export type CreateUserType = {
     email: string;
     password: string;
     name: string;
-    status: string;
+    status?: string;
     roleId?: number;
 }

@@ -27,5 +27,21 @@
   "PROFILE": "Profile",
   "PROFILE_DETAILS": "Profile details",
   "PROFILE_MESSAGE": "Welcome to your profile",
-  "ROLE": "Role"
+  "ROLE": "Role",
+  "CANCEL": "Cancel",
+  "SAVE": "Save",
+  "EDIT": "Edit",
+  "CLOSE": "Close",
+  "DELETE": "Delete",
+  "CREATE_USER": "Create user",
+  "ADD_USER": "Add user",
+  "EDIT_USER": "Edit user",
+  "NAME": "Name",
+  "PLEASE_SELECT_ROLE": "Please select a role",
+  "SELECT_ROLE": "Select role",
+  "ROLE_NOT_FOUND": "Role not found please reload the page",
+  "PAGE": "Page",
+  "TOTAL_RECORDS": "Total records",
+  "OF": "of ",
+  "CONFIRM_DELETE": "Are you sure you want to delete this record?, this action cannot be undone"
 }
