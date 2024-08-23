@@ -5,7 +5,7 @@ import { getRoleById } from "../../services/roles/getRoleById.service";
 import { User } from "../../types/auth/auth.types";
 import { RolesType } from "../../types/roles/roles.types";
 import { DateTimeUtils } from "../../utils/dateTimeUtils";
-import { getUserById } from "../../services/users/getUserById.service";
+import { getUserById } from "../../services/users/GetUserById.service";
 
 const Profile = () => {
   const { t } = useTranslation();
