@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import Sidebar from "../../components/Sidebar";
 
-const Users = () => {
+const Roles = () => {
   const { t } = useTranslation();
 
   return (
@@ -14,4 +14,4 @@ const Users = () => {
   );
 };
 
-export default Users;
+export default Roles;

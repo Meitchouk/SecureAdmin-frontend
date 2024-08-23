@@ -14,5 +14,18 @@
   "DASHBOARD_MESSAGE": "Bienvenido al panel de control",
   "USERNAME": "Nombre de usuario",
   "CREATED_AT": "Creado en",
-  "DASHBOARD": "Panel de control"
+  "DASHBOARD": "Panel de control",
+  "ROLE_INFORMATION": "Información del rol",
+  "ROLE_DESCRIPTION": "Descripción del rol",
+  "ROLE_STATUS": "Estado del rol",
+  "ROLE_CREATED_AT": "Rol creado en",
+  "DASHBOARD_SIDEBAR": "Panel de control",
+  "SECURITY_SIDEBAR": "Seguridad",
+  "USERS_SIDEBAR": "Usuarios",
+  "ROLES_SIDEBAR": "Roles",
+  "PROFILE_SIDEBAR": "Perfil",
+  "PROFILE": "Perfil",
+  "PROFILE_DETAILS": "Detalles del perfil",
+  "PROFILE_MESSAGE": "Bienvenido a tu perfil",
+  "ROLE": "Rol"
 }

@@ -14,5 +14,18 @@
   "DASHBOARD_MESSAGE": "Welcome to the dashboard",
   "USERNAME": "Username",
   "CREATED_AT": "Created at",
-  "DASHBOARD": "Dashboard"
+  "DASHBOARD": "Dashboard",
+  "ROLE_INFORMATION": "Role information",
+  "ROLE_DESCRIPTION": "Role description",
+  "ROLE_STATUS": "Role status",
+  "ROLE_CREATED_AT": "Role created at",
+  "DASHBOARD_SIDEBAR": "Dashboard",
+  "SECURITY_SIDEBAR": "Security",
+  "USERS_SIDEBAR": "Users",
+  "ROLES_SIDEBAR": "Roles",
+  "PROFILE_SIDEBAR": "Profile",
+  "PROFILE": "Profile",
+  "PROFILE_DETAILS": "Profile details",
+  "PROFILE_MESSAGE": "Welcome to your profile",
+  "ROLE": "Role"
 }
