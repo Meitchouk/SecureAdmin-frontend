@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import Sidebar from "../../components/Sidebar";
 import { getRoleById } from "../../services/roles/getRoleById.service";
-import { DateTimeUtils } from "../../utils/dateTimeUtils";
 import { getUserById } from "../../services/users/getUserById.service";
-import { RolesType } from "../../types/roles/roles.types";
 import { User } from "../../types/auth/auth.types";
+import { RolesType } from "../../types/roles/roles.types";
+import { DateTimeUtils } from "../../utils/dateTimeUtils";
 
 const Profile = () => {
   const { t } = useTranslation();
@@ -15,7 +15,7 @@ const Profile = () => {
   useEffect(() => {
     const userId = localStorage.getItem("userId");
     if (userId) {
-      getUserById(Number(userId)).then((userData) => setUser(userData));
+      getUserById(Number(userId)).then((userData: User) => setUser(userData));
     }
 
     const roleId = localStorage.getItem("roleId");
