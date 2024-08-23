@@ -1,5 +1,10 @@
-import { CreateUserType } from "./createUsers.types"
+import { } from "./createUsers.types"
 
-export type UpdateUserType = CreateUserType & {
-    // Posteriormente en caso que esto se necesite cambiar o actualizar se puede hacer aquí
+export type UpdateUserType = {
+    username?: string;
+    email?: string;
+    password?: string;
+    name?: string;
+    status?: string;
+    roleId?: number;
 }

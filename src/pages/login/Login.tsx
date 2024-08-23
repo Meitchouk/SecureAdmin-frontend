@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { login } from "../../services/auth/login.service";
 import Alert from "../../components/Alert";
+import Spinner from "../../components/Spinner";
+import { useTranslation } from "react-i18next";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -9,26 +11,34 @@ const Login = () => {
   const [message, setMessage] = useState("");
   const [showAlert, setShowAlert] = useState(false);
   const [alertType, setAlertType] = useState<"error" | "success">("error");
+  const [loading, setLoading] = useState(false);
+
+  const { t } = useTranslation();
 
   const navigate = useNavigate();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const response = await login(username, password);
-      const { access_token } = response;
+      const { access_token, user } = response;
 
       // Almacenar el token en el localStorage
       localStorage.setItem("token", access_token);
-      localStorage.setItem("username", response.user.name);
-      localStorage.setItem("email", response.user.email);
-      localStorage.setItem("createdAt", response.user.createdAt.toISOString());
+      localStorage.setItem("userId", user.id.toString());
+      localStorage.setItem("username", user.username);
+      localStorage.setItem("name", user.name);
+      localStorage.setItem("email", user.email);
+      localStorage.setItem("createdAt", new Date(user.createdAt).toISOString());
+      localStorage.setItem("roleId", user.roleId.toString());
 
-      setMessage(`Login successful. Welcome, ${response.user.name}!`);
+      setMessage(`Login successful. Welcome, ${user.name}!`);
       setAlertType("success");
       setShowAlert(true);
 
       // Redirigir al dashboard
+      console.log("Redirigiendo al dashboard...");
       navigate("/dashboard");
     } catch (error) {
       setMessage(
@@ -42,21 +52,23 @@ const Login = () => {
       setTimeout(() => {
         setShowAlert(false);
       }, 3000);
+    } finally {
+      setLoading(false); // Ocultar el spinner una vez que la solicitud haya terminado
     }
-  };
-
-  const closeAlert = () => {
-    setShowAlert(false);
   };
 
   return (
     <div className="flex min-h-screen flex-col justify-center px-6 py-12 lg:px-8 bg-light-background dark:bg-dark-background">
       {showAlert && (
-        <Alert type={alertType} message={message} onClose={closeAlert} />
+        <Alert
+          type={alertType}
+          message={message}
+          onClose={() => setShowAlert(false)}
+        />
       )}
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-light-textPrimary dark:text-dark-textPrimary">
-          Sign in to your account
+          {t("LOGIN_TITLE")}
         </h2>
       </div>
 
@@ -67,7 +79,7 @@ const Login = () => {
               htmlFor="username"
               className="block text-sm font-medium leading-6 text-light-textPrimary dark:text-dark-textPrimary"
             >
-              Email
+              {t("USERNAME")}
             </label>
             <div className="mt-2">
               <input
@@ -87,7 +99,7 @@ const Login = () => {
               htmlFor="password"
               className="block text-sm font-medium leading-6 text-light-textPrimary dark:text-dark-textPrimary"
             >
-              Password
+              {t("PASSWORD")}
             </label>
             <div className="mt-2">
               <input
@@ -106,8 +118,10 @@ const Login = () => {
             <button
               type="submit"
               className="flex w-full justify-center rounded-md bg-light-primary dark:bg-dark-primary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-light-secondary dark:hover:bg-dark-secondary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-light-primary dark:focus-visible:outline-dark-primary"
+              disabled={loading} // Desactivar el botón mientras está cargando
             >
-              Login
+              {loading ? <Spinner /> : t("LOGIN_BUTTON")}{" "}
+              {/* Mostrar el Spinner o el texto */}
             </button>
           </div>
         </form>

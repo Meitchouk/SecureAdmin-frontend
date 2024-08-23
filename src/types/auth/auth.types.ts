@@ -7,6 +7,7 @@ export interface User {
     status: boolean;
     createdAt: Date;
     roleId: number;
+    role: string;
 }
 
 export type AuthResponse = {
