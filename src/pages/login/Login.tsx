@@ -6,7 +6,7 @@ import Spinner from "../../components/Spinner";
 import { useTranslation } from "react-i18next";
 
 const Login = () => {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [showAlert, setShowAlert] = useState(false);
@@ -21,7 +21,7 @@ const Login = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await login(username, password);
+      const response = await login(email, password);
       const { access_token, user } = response;
 
       // Almacenar el token en el localStorage
@@ -58,7 +58,7 @@ const Login = () => {
   };
 
   return (
-    <div className="flex min-h-screen flex-col justify-center px-6 py-12 lg:px-8 bg-light-background dark:bg-dark-background">
+    <div className="flex min-h-screen flex-col justify-center px-6 py-12 lg:px-8 bg-light-background dark:bg-dark-background pb-40">
       {showAlert && (
         <Alert
           type={alertType}
@@ -76,20 +76,21 @@ const Login = () => {
         <form className="space-y-6" onSubmit={handleLogin}>
           <div>
             <label
-              htmlFor="username"
+              htmlFor="email"
               className="block text-sm font-medium leading-6 text-light-textPrimary dark:text-dark-textPrimary"
             >
-              {t("USERNAME")}
+              {t("EMAIL")}
             </label>
             <div className="mt-2">
               <input
-                id="username"
-                name="username"
+                id="email"
+                name="email"
                 type="text"
                 required
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="block w-full rounded-md border border-gray-300 py-2 px-3 text-light-textPrimary dark:text-dark-textPrimary bg-light-background dark:bg-dark-background shadow-sm placeholder:text-light-textSecondary dark:placeholder:text-dark-textSecondary focus:outline-none focus:ring-2 focus:ring-light-primary dark:focus:ring-dark-primary"
+                placeholder="email@email.com"
               />
             </div>
           </div>
@@ -109,6 +110,7 @@ const Login = () => {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                placeholder="password"
                 className="block w-full rounded-md border border-gray-300 py-2 px-3 text-light-textPrimary dark:text-dark-textPrimary bg-light-background dark:bg-dark-background shadow-sm placeholder:text-light-textSecondary dark:placeholder:text-dark-textSecondary focus:outline-none focus:ring-2 focus:ring-light-primary dark:focus:ring-dark-primary"
               />
             </div>
