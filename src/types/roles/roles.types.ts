@@ -1,6 +1,6 @@
 import { User } from "../auth/auth.types";
 
-export interface Roles {
+export type RolesType = {
     id: number;
     description: string;
     status: boolean;

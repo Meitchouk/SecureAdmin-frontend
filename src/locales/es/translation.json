@@ -43,5 +43,13 @@
   "PAGE": "Página",
   "TOTAL_RECORDS": "Total de registros",
   "OF": "de ",
-  "CONFIRM_DELETE": "¿Estás seguro de que deseas eliminar este registro?, esta acción no se puede deshacer"
+  "CONFIRM_DELETE": "¿Estás seguro de que deseas eliminar este registro?, esta acción no se puede deshacer",
+  "CANNOT_DELETE_SELF_ROLE": "No puedes eliminar tu propio rol",
+  "STATUS": "Estado",
+  "USERS": "Usuarios",
+  "ACTIONS": "Acciones",
+  "CREATE_ROLE": "Crear rol",
+  "DESCRIPTION_EDIT_ROLE_MODAL": "Editar rol",
+  "DESCRIPTION_CREATE_ROLE_MODAL": "Crear rol",
+  "NO_USERS": "No se encontraron usuarios"
 }

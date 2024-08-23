@@ -21,6 +21,7 @@ const Sidebar = () => {
   const [currentTime, setCurrentTime] = useState(formatTime(new Date()));
   const location = useLocation();
   const roleId = Number(localStorage.getItem("roleId"));
+  const username = localStorage.getItem("username");
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -122,7 +123,13 @@ const Sidebar = () => {
       <div className="mt-auto text-center mb-16">
         <Link to="/profile" className={navLinkClasses("/profile")}>
           <FaUserShield className="mr-2" />
-          {!isCollapsed && <span>{t("PROFILE_SIDEBAR")}</span>}
+          {!isCollapsed && (
+            <span>
+              {t("PROFILE_SIDEBAR")}
+              {" | "}
+              {username}
+            </span>
+          )}
         </Link>
         {!isCollapsed && (
           <div className="text-light-textPrimary dark:text-dark-textPrimary mt-2">

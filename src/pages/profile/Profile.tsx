@@ -4,13 +4,13 @@ import Sidebar from "../../components/Sidebar";
 import { getRoleById } from "../../services/roles/getRoleById.service";
 import { DateTimeUtils } from "../../utils/dateTimeUtils";
 import { getUserById } from "../../services/users/getUserById.service";
-import { Roles } from "../../types/roles/roles.types";
+import { RolesType } from "../../types/roles/roles.types";
 import { User } from "../../types/auth/auth.types";
 
 const Profile = () => {
   const { t } = useTranslation();
   const [user, setUser] = useState<User | null>(null);
-  const [role, setRole] = useState<Roles | null>(null);
+  const [role, setRole] = useState<RolesType | null>(null);
 
   useEffect(() => {
     const userId = localStorage.getItem("userId");

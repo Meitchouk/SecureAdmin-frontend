@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import Sidebar from "../../components/Sidebar";
 import { DateTimeUtils } from "../../utils/dateTimeUtils";
 import { getRoleById } from "../../services/roles/getRoleById.service";
-import { Roles } from "../../types/roles/roles.types";
+import { RolesType } from "../../types/roles/roles.types";
 
 const Dashboard = () => {
   const username = localStorage.getItem("username");
@@ -11,7 +11,7 @@ const Dashboard = () => {
   const createdAt = localStorage.getItem("createdAt");
   const roleId = localStorage.getItem("roleId");
 
-  const [Role, setRole] = useState<Roles | null>(null);
+  const [Role, setRole] = useState<RolesType | null>(null);
 
   useEffect(() => {
     getRoleById(Number(roleId)).then((role) => {
