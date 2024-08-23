@@ -1,0 +1,18 @@
+{
+  "LOGIN_SUCCESFULL": "Inicio de sesión exitoso, Bienvenido ",
+  "LOGIN_ERROR": "Error en el inicio de sesión, verifique sus credenciales",
+  "LOGIN_TITLE": "Bienvenido a SecureAdmin.",
+  "EMAIL": "Correo",
+  "PASSWORD": "Contraseña",
+  "LOGIN_BUTTON": "Iniciar sesión",
+  "LOADING": "Cargando...",
+  "APP_NAME": "SecureAdmin",
+  "WELCOME": "Bienvenido",
+  "SPANISH": "Español",
+  "ENGLISH": "Inglés",
+  "MANAGE_YOUR_OPTIONS": "Administra tus opciones",
+  "DASHBOARD_MESSAGE": "Bienvenido al panel de control",
+  "USERNAME": "Nombre de usuario",
+  "CREATED_AT": "Creado en",
+  "DASHBOARD": "Panel de control"
+}

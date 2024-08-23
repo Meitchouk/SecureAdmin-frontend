@@ -1,0 +1,18 @@
+{
+  "LOGIN_SUCCESFULL": "Login successful, Welcome ",
+  "LOGIN_ERROR": "Login error, check your credentials",
+  "LOGIN_TITLE": "Welcome to SecureAdmin.",
+  "EMAIL": "Email",
+  "PASSWORD": "Password",
+  "LOGIN_BUTTON": "Login",
+  "LOADING": "Loading...",
+  "APP_NAME": "SecureAdmin",
+  "WELCOME": "Welcome",
+  "SPANISH": "Spanish",
+  "ENGLISH": "English",
+  "MANAGE_YOUR_OPTIONS": "Manage your options",
+  "DASHBOARD_MESSAGE": "Welcome to the dashboard",
+  "USERNAME": "Username",
+  "CREATED_AT": "Created at",
+  "DASHBOARD": "Dashboard"
+}
