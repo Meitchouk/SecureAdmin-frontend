@@ -67,5 +67,6 @@
   "TOKEN_PLACEHOLDER": "Token",
   "NEW_PASSWORD": "Nueva contraseña",
   "NEW_PASSWORD_PLACEHOLDER": "Nueva contraseña",
-  "RESET_PASSWORD_BUTTON": "Restablecer contraseña"
+  "RESET_PASSWORD_BUTTON": "Restablecer contraseña",
+  "CONFIRM_DELETE_ROLE": "¿Estás seguro de que deseas eliminar este rol?, esta acción no se puede deshacer"
 }
