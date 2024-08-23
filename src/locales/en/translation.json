@@ -51,5 +51,21 @@
   "CREATE_ROLE": "Create role",
   "DESCRIPTION_EDIT_ROLE_MODAL": "Edit role",
   "DESCRIPTION_CREATE_ROLE_MODAL": "Create role",
-  "NO_USERS": "No users found"
+  "NO_USERS": "No users found",
+  "CREATE_ACCOUNT": "Create account",
+  "CREATE_ACCOUNT_BUTTON": "Create account",
+  "LOGOUT_SIDEBAR": "Logout",
+  "FORGOT_PASSWORD_TITLE": "Forgot password",
+  "SEND_RESET_LINK": "Send reset link",
+  "FORGOT_PASSWORD": "Forgot password",
+  "PASSWORD_RESET_SUCCESS": "Password reset successful",
+  "PASSWORD_RESET_FAILED": "Password reset failed",
+  "PASSWORD_RESET_ERROR": "Password reset error",
+  "RESET_PASSWORD_TITLE": "Reset password",
+  "EMAIL_PLACEHOLDER": "Email",
+  "TOKEN": "Token",
+  "TOKEN_PLACEHOLDER": "Token",
+  "NEW_PASSWORD": "New password",
+  "NEW_PASSWORD_PLACEHOLDER": "New password",
+  "RESET_PASSWORD_BUTTON": "Reset password"
 }

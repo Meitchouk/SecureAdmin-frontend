@@ -1,59 +1,54 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { login } from "../../services/auth/login.service";
+import { createUser } from "../../services/users/createUser.service";
 import Alert from "../../components/Alert";
 import Spinner from "../../components/Spinner";
 import { useTranslation } from "react-i18next";
 
-const Login = () => {
+const CreateUser = () => {
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
   const [message, setMessage] = useState("");
   const [showAlert, setShowAlert] = useState(false);
   const [alertType, setAlertType] = useState<"error" | "success">("error");
   const [loading, setLoading] = useState(false);
 
   const { t } = useTranslation();
-
   const navigate = useNavigate();
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleCreateUser = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+
     try {
-      const response = await login(email, password);
-      const { access_token, user } = response;
+      const newUser = {
+        username,
+        email,
+        password,
+        name,
+        roleId: 1, // Assign roleId as 1 by default
+      };
 
-      // Almacenar el token en el localStorage
-      localStorage.setItem("token", access_token);
-      localStorage.setItem("userId", user.id.toString());
-      localStorage.setItem("username", user.username);
-      localStorage.setItem("name", user.name);
-      localStorage.setItem("email", user.email);
-      localStorage.setItem("createdAt", new Date(user.createdAt).toISOString());
-      localStorage.setItem("roleId", user.roleId.toString());
-
-      setMessage(`Login successful. Welcome, ${user.name}!`);
+      await createUser(newUser);
+      setMessage(t("USER_CREATED_SUCCESS"));
       setAlertType("success");
       setShowAlert(true);
 
-      // Redirigir al dashboard
-      console.log("Redirigiendo al dashboard...");
-      navigate("/dashboard");
+      // Redirect to login page after successful user creation
+      setTimeout(() => {
+        navigate("/");
+      }, 3000);
     } catch (error) {
       setMessage(
         (error as { response?: { data?: { message?: string } } })?.response
-          ?.data?.message || "An error occurred while logging in"
+          ?.data?.message || t("ERROR_CREATING_USER")
       );
       setAlertType("error");
       setShowAlert(true);
-
-      // Ocultar el Alert después de 3 segundos
-      setTimeout(() => {
-        setShowAlert(false);
-      }, 3000);
     } finally {
-      setLoading(false); // Ocultar el spinner una vez que la solicitud haya terminado
+      setLoading(false);
     }
   };
 
@@ -68,12 +63,33 @@ const Login = () => {
       )}
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-light-textPrimary dark:text-dark-textPrimary">
-          {t("LOGIN_TITLE")}
+          {t("CREATE_USER_TITLE")}
         </h2>
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form className="space-y-6" onSubmit={handleLogin}>
+        <form className="space-y-6" onSubmit={handleCreateUser}>
+          <div>
+            <label
+              htmlFor="username"
+              className="block text-sm font-medium leading-6 text-light-textPrimary dark:text-dark-textPrimary"
+            >
+              {t("USERNAME")}
+            </label>
+            <div className="mt-2">
+              <input
+                id="username"
+                name="username"
+                type="text"
+                required
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                className="block w-full rounded-md border border-gray-300 py-2 px-3 text-light-textPrimary dark:text-dark-textPrimary bg-light-background dark:bg-dark-background shadow-sm placeholder:text-light-textSecondary dark:placeholder:text-dark-textSecondary focus:outline-none focus:ring-2 focus:ring-light-primary dark:focus:ring-dark-primary"
+                placeholder="username"
+              />
+            </div>
+          </div>
+
           <div>
             <label
               htmlFor="email"
@@ -85,12 +101,12 @@ const Login = () => {
               <input
                 id="email"
                 name="email"
-                type="text"
+                type="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="block w-full rounded-md border border-gray-300 py-2 px-3 text-light-textPrimary dark:text-dark-textPrimary bg-light-background dark:bg-dark-background shadow-sm placeholder:text-light-textSecondary dark:placeholder:text-dark-textSecondary focus:outline-none focus:ring-2 focus:ring-light-primary dark:focus:ring-dark-primary"
-                placeholder="email@email.com"
+                placeholder="email@example.com"
               />
             </div>
           </div>
@@ -110,8 +126,29 @@ const Login = () => {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="password"
                 className="block w-full rounded-md border border-gray-300 py-2 px-3 text-light-textPrimary dark:text-dark-textPrimary bg-light-background dark:bg-dark-background shadow-sm placeholder:text-light-textSecondary dark:placeholder:text-dark-textSecondary focus:outline-none focus:ring-2 focus:ring-light-primary dark:focus:ring-dark-primary"
+                placeholder="password"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium leading-6 text-light-textPrimary dark:text-dark-textPrimary"
+            >
+              {t("NAME")}
+            </label>
+            <div className="mt-2">
+              <input
+                id="name"
+                name="name"
+                type="text"
+                required
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="block w-full rounded-md border border-gray-300 py-2 px-3 text-light-textPrimary dark:text-dark-textPrimary bg-light-background dark:bg-dark-background shadow-sm placeholder:text-light-textSecondary dark:placeholder:text-dark-textSecondary focus:outline-none focus:ring-2 focus:ring-light-primary dark:focus:ring-dark-primary"
+                placeholder="Full Name"
               />
             </div>
           </div>
@@ -120,34 +157,24 @@ const Login = () => {
             <button
               type="submit"
               className="flex w-full justify-center rounded-md bg-light-primary dark:bg-dark-primary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-light-secondary dark:hover:bg-dark-secondary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-light-primary dark:focus-visible:outline-dark-primary"
-              disabled={loading} // Desactivar el botón mientras está cargando
+              disabled={loading}
             >
-              {loading ? <Spinner /> : t("LOGIN_BUTTON")}{" "}
-              {/* Mostrar el Spinner o el texto */}
+              {loading ? <Spinner /> : t("CREATE_ACCOUNT")}
+            </button>
+          </div>
+
+          <div className="text-center mt-4">
+            <button
+              onClick={() => navigate("/")}
+              className="text-sm font-medium leading-6 text-light-primary dark:text-dark-primary hover:underline"
+            >
+              {t("BACK_TO_LOGIN")}
             </button>
           </div>
         </form>
-        <div className="flex items-center justify-between mt-6">
-          <div className="text-sm">
-            <a
-              href="/forgot-password"
-              className="font-medium text-light-primary hover:text-light-secondary"
-            >
-              {t("FORGOT_PASSWORD")}
-            </a>
-          </div>
-          <div className="text-sm">
-            <a
-              href="/register"
-              className="font-medium text-light-primary hover:text-light-secondary"
-            >
-              {t("CREATE_ACCOUNT")}
-            </a>
-          </div>
-        </div>
       </div>
     </div>
   );
 };
 
-export default Login;
+export default CreateUser;

@@ -51,5 +51,21 @@
   "CREATE_ROLE": "Crear rol",
   "DESCRIPTION_EDIT_ROLE_MODAL": "Editar rol",
   "DESCRIPTION_CREATE_ROLE_MODAL": "Crear rol",
-  "NO_USERS": "No se encontraron usuarios"
+  "NO_USERS": "No se encontraron usuarios",
+  "CREATE_ACCOUNT": "Crear cuenta",
+  "CREATE_ACCOUNT_BUTTON": "Crear cuenta",
+  "LOGOUT_SIDEBAR": "Cerrar sesión",
+  "FORGOT_PASSWORD_TITLE": "Olvidé mi contraseña",
+  "SEND_RESET_LINK": "Enviar enlace de restablecimiento",
+  "FORGOT_PASSWORD": "Olvidé mi contraseña",
+  "PASSWORD_RESET_SUCCESS": "Restablecimiento de contraseña exitoso",
+  "PASSWORD_RESET_FAILED": "Restablecimiento de contraseña fallido",
+  "PASSWORD_RESET_ERROR": "Error al restablecer la contraseña",
+  "RESET_PASSWORD_TITLE": "Restablecer contraseña",
+  "EMAIL_PLACEHOLDER": "Correo",
+  "TOKEN": "Token",
+  "TOKEN_PLACEHOLDER": "Token",
+  "NEW_PASSWORD": "Nueva contraseña",
+  "NEW_PASSWORD_PLACEHOLDER": "Nueva contraseña",
+  "RESET_PASSWORD_BUTTON": "Restablecer contraseña"
 }

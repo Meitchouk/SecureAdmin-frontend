@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import {
   FaChevronLeft,
   FaChevronRight,
@@ -7,10 +6,12 @@ import {
   FaTachometerAlt,
   FaUsers,
   FaUserShield,
+  FaSignOutAlt,
 } from "react-icons/fa";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { MdSecurity } from "react-icons/md";
 import { BsPersonBadgeFill } from "react-icons/bs";
+import { useState, useEffect } from "react";
 import { formatDate, formatTime } from "../../utils/dateTimeUtils";
 import { t } from "i18next";
 
@@ -20,6 +21,7 @@ const Sidebar = () => {
   const [currentDate] = useState(formatDate(new Date()));
   const [currentTime, setCurrentTime] = useState(formatTime(new Date()));
   const location = useLocation();
+  const navigate = useNavigate();
   const roleId = Number(localStorage.getItem("roleId"));
   const username = localStorage.getItem("username");
 
@@ -49,6 +51,13 @@ const Sidebar = () => {
   const isInSecurityMenu = ["/security/users", "/security/roles"].includes(
     location.pathname
   );
+
+  const handleLogout = () => {
+    // Clear local storage or any session storage
+    localStorage.clear();
+    // Redirect to login
+    navigate("/");
+  };
 
   return (
     <div
@@ -136,6 +145,15 @@ const Sidebar = () => {
             {currentDate} {" | "} {currentTime}
           </div>
         )}
+
+        {/* Logout Button */}
+        <button
+          onClick={handleLogout}
+          className="flex items-center justify-center w-full text-left p-2 mt-4 text-light-textPrimary dark:text-dark-textPrimary hover:bg-light-secondary dark:hover:bg-dark-secondary rounded-md"
+        >
+          <FaSignOutAlt className="mr-2" />
+          {!isCollapsed && <span>{t("LOGOUT_SIDEBAR")}</span>}
+        </button>
       </div>
     </div>
   );
