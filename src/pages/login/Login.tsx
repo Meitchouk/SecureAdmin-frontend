@@ -22,7 +22,7 @@ const Login = () => {
       localStorage.setItem("token", access_token);
       localStorage.setItem("username", response.user.name);
       localStorage.setItem("email", response.user.email);
-      localStorage.setItem("createdAt", response.user.createdAt);
+      localStorage.setItem("createdAt", response.user.createdAt.toString());
 
       setMessage(`Login successful. Welcome, ${response.user.name}!`);
       setAlertType("success");
